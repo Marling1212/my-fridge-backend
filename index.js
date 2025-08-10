@@ -22,3 +22,14 @@ const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+app.post('/parse', (req, res) => {
+  const { text } = req.body;
+  // Dummy response for now
+  res.json({
+    item_name: 'unknown item',
+    quantity: '1',
+    storage_duration_days: '7',
+    placement_date: new Date().toISOString().split('T')[0],
+    expiration_date: '-'
+  });
+});
